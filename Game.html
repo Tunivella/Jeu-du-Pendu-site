@@ -1,0 +1,242 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Jeu du Pendu</title>
+
+        <style>
+            body {
+                font-family: Arial;
+                max-width: 850px;
+                background: #2e3440;
+                margin: 10px auto;
+            }
+            h1 {
+                color: #d4dae8;
+                padding-bottom: 20px;
+                margin-bottom: 20px;
+                border-bottom: 3px solid #434c5d;
+                padding: 20px;
+            }
+            h2 {
+                color: #d4dae8;
+                padding-bottom: 10px;
+                border-bottom: 2px solid #434c5d;
+            }
+            h3 {
+                color: #5d6683;
+            }
+            p {
+                font: italic;
+                color: #b5b6bb;
+            }
+
+            /* Style the tab */
+            .tab {
+                overflow: hidden;
+                border: 2px solid #4c566b;
+                background-color: #434c5d;
+            }
+
+            /* Style the buttons inside the tab */
+            .tab button {
+                background-color: inherit;
+                float: left;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                padding: 14px 16px;
+                transition: 0.3s;
+                font-size: 17px;
+            }
+
+            /* Change background color of buttons on hover */
+            .tab button:hover {
+                background-color: #4c566b;
+            }
+
+            /* Create an active/current tablink class */
+            .tab button.active {
+                background-color: #4c566b;
+            }
+
+            /* Style the tab content */
+            .tabcontent {
+                display: none;
+                padding: 6px 12px;
+                border: 2px solid #4c566b;
+                border-top: none;
+            }
+
+            /* Style the close button */
+            .topright {
+                color: #6c788f;
+                float: right;
+                cursor: pointer;
+                font-size: 28px;
+            }
+
+            .topright:hover {
+                color: #975b60;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Le Jeu du Pendu avec python</h1>
+        <h3>
+            Notre projet consiste créer avec python le Jeu du Pendu, dont le but
+            est de deviner un mot choisi aléatoirement. Le joueur doit entrer au
+            clavier des lettres et a 10 essais pour trouver le mot. Si le joueur
+            commet plus de 10 erreurs, la partie est perdue.
+        </h3>
+
+        <div class="tab">
+            <button
+                class="tablinks"
+                onclick="openPage(event, 'Code')"
+                id="defaultOpen"
+            >
+                Code
+            </button>
+            <button class="tablinks" onclick="openPage(event, 'Something')">
+                Something
+            </button>
+            <button class="tablinks" onclick="openPage(event, 'Test')">
+                Test
+            </button>
+        </div>
+
+        <div id="Code" class="tabcontent">
+            <span
+                onclick="this.parentElement.style.display='none'"
+                class="topright"
+                >×</span
+            >
+
+            <br />
+            <br />
+            <br />
+
+            <h2>
+                Fonction choisissant un mot aléatoire à partir d'un
+                dictionnaire:
+            </h2>
+            <img src="Mot aléatoire.PNG" width="800" />
+            <p>
+                Ici, la fonction choisit aléatoirement un mot du dictionnaire
+                avec des conditions particulières
+            </p>
+
+            <br />
+            <br />
+            <br />
+
+            <h2>Image du pendu en python</h2>
+            <img src="Image pendu.PNG" width="800" />
+            <p>
+                En python, on forme une image à l'aide des symboles. A chaque
+                erreur, une partie de l'image est ajoutée.
+            </p>
+
+            <br />
+            <br />
+            <br />
+
+            <h2>Début du code</h2>
+            <img src="Initialisation du code.PNG" width="800" />
+            <p>
+                On définit les variables et on demande au joueur de débuter le
+                jeu.
+            </p>
+
+            <br />
+            <br />
+            <br />
+
+            <h2>Lettres justes ou lettres fausses</h2>
+            <img src="Lettres oui _lettres non.PNG" width="800" />
+            <p>
+                Le code analyse les lettres entrées et détermine si elles
+                appartiennent ou pas au code. Dans chacun des cas, une message
+                spécifique sera affiché.
+            </p>
+
+            <br />
+            <br />
+            <br />
+
+            <h2>Complétion de l'image</h2>
+            <img src="Complétion image.PNG" width="800" />
+            <p>A chaque erreur, une partie de l'image sera ajoutée.</p>
+
+            <br />
+            <br />
+            <br />
+
+            <h2>Deviner le mot</h2>
+            <img src="Devine le mot.PNG" width="800" />
+            <p>
+                Durant chaque tour, il sera proposé au joueur de deviner le mot.
+                S'il ne veut pas il peut tout simplement continuer.
+            </p>
+
+            <br />
+            <br />
+            <br />
+
+            <h2>Fin du jeu</h2>
+            <img src="Fin du jeu.PNG" width="800" />
+            <p>
+                Le code comptabilise le nombre d'erreurs, et si celui-ci dépasse
+                les 10 erreurs, il affiche un message.
+            </p>
+
+            <br />
+            <br />
+            <br />
+        </div>
+
+        <div id="Something" class="tabcontent">
+            <span
+                onclick="this.parentElement.style.display='none'"
+                class="topright"
+                >×</span
+            >
+            <h3>Something</h3>
+            <p>Bla Bla Bla</p>
+        </div>
+
+        <div id="Test" class="tabcontent">
+            <span
+                onclick="this.parentElement.style.display='none'"
+                class="topright"
+                >×</span
+            >
+            <h3>Test</h3>
+            <p>Write text</p>
+        </div>
+
+        <script>
+            function openPage(evt, pageName) {
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("tablinks");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(
+                        " active",
+                        "",
+                    );
+                }
+                document.getElementById(pageName).style.display = "block";
+                evt.currentTarget.className += " active";
+            }
+
+            // Get the element with id="defaultOpen" and click on it
+            document.getElementById("defaultOpen").click();
+        </script>
+    </body>
+</html>
